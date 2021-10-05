@@ -13,7 +13,7 @@ import java.util.List;
 
 @Dao
 public interface TaskDao {
-    @Query("SELECT * FROM Task WHERE projectId=:projectId")
+    @Query("SELECT * FROM Task WHERE project_id=:projectId")
     LiveData<List<Task>> getTasksFromProjectId(long projectId);
 
     @Query("SELECT * FROM Task")
@@ -27,4 +27,7 @@ public interface TaskDao {
 
     @Query("DELETE FROM Task WHERE id = :taskId")
     int deleteTask(long taskId);
+
+    @Query("DELETE FROM Task")
+    int deleteAllTask();
 }

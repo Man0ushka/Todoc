@@ -19,7 +19,7 @@ import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 
 
-@Database(entities = {Project.class, Task.class},version = 1,exportSchema = true)
+@Database(entities = {Project.class, Task.class},version = 1)
 public abstract class TodocDatabase extends RoomDatabase {
     // --- SINGLETON ---
     private static volatile TodocDatabase INSTANCE;
@@ -52,16 +52,16 @@ public abstract class TodocDatabase extends RoomDatabase {
 
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("id", 0);
-                contentValues.put("name", "Projet Tartampion");
+                contentValues.put("project_name", "Projet Tartampion");
                 contentValues.put("color", 0xFFEADAD1);
                 db.insert("Project", OnConflictStrategy.IGNORE, contentValues);
 
                 contentValues.put("id", 1);
-                contentValues.put("name", "Projet Lucidia");
+                contentValues.put("project_name", "Projet Lucidia");
                 contentValues.put("color", 0xFFB4CDBA);
                 db.insert("Project", OnConflictStrategy.IGNORE, contentValues);
                 contentValues.put("id", 2);
-                contentValues.put("name", "Projet Circus");
+                contentValues.put("project_name", "Projet Circus");
                 contentValues.put("color", 0xFFA3CED2);
                 db.insert("Project", OnConflictStrategy.IGNORE, contentValues);
 

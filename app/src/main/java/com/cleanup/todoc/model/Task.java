@@ -2,6 +2,7 @@ package com.cleanup.todoc.model;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
@@ -13,7 +14,7 @@ import java.util.Comparator;
  *
  * @author Gaëtan HERFRAY
  */
-@Entity(foreignKeys = @ForeignKey(entity = Project.class,parentColumns = "id",childColumns = "projectId"))
+@Entity(foreignKeys = @ForeignKey(entity = Project.class,parentColumns = "id",childColumns = "project_id"))
 public class Task {
     /**
      * The unique identifier of the task
@@ -24,7 +25,7 @@ public class Task {
     /**
      * The unique identifier of the project associated to the task
      */
-
+    @ColumnInfo(name = "project_id")
     private long projectId;
 
     public long getProjectId() {
@@ -41,11 +42,13 @@ public class Task {
     // Suppress warning because setName is called in constructor
     @SuppressWarnings("NullableProblems")
     @NonNull
+    @ColumnInfo(name = "task_name")
     private String name;
 
     /**
      * The timestamp when the task has been created
      */
+    @ColumnInfo(name = "creation_time_stamp")
     private long creationTimestamp;
 
     /**
@@ -56,7 +59,7 @@ public class Task {
      * @param name              the name of the task to set
      * @param creationTimestamp the timestamp when the task has been created to set
      */
-    public Task(long id, long projectId, @NonNull String name, long creationTimestamp) {
+    public Task(long id, long projectId, String name, long creationTimestamp) {
         this.setId(id);
         this.setProjectId(projectId);
         this.setName(name);

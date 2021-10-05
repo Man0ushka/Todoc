@@ -35,27 +35,22 @@ public class TaskViewModel extends ViewModel {
         return projectDataSource.getProject(projectId);
     }
     public void createProject(Project project){
-        executor.execute(() -> {
-            projectDataSource.createProject(project);
-        });
+        executor.execute(() -> projectDataSource.createProject(project));
     }
 
     public void createTask(Task task) {
-        executor.execute(() -> {
-            taskDataSource.createTask(task);
-        });
+        executor.execute(() -> taskDataSource.createTask(task));
     }
 
     public void deleteTask(long taskId) {
-        executor.execute(() -> {
-            taskDataSource.deleteTask(taskId);
-        });
+        executor.execute(() -> taskDataSource.deleteTask(taskId));
     }
 
     public void updateTask(Task task) {
-        executor.execute(() -> {
-            taskDataSource.updateTask(task);
-        });
+        executor.execute(() -> taskDataSource.updateTask(task));
+    }
+    public void deleteAllTasks() {
+        executor.execute(() -> taskDataSource.deleteAllTasks());
     }
 
 }

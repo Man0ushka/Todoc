@@ -3,6 +3,7 @@ package com.cleanup.todoc.model;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -16,19 +17,21 @@ public class Project {
     /**
      * The unique identifier of the project
      */
-    @PrimaryKey
-    private final long id;
+    @PrimaryKey(autoGenerate = true)
+    private long id;
 
     /**
      * The name of the project
      */
     @NonNull
+    @ColumnInfo(name = "project_name")
     private final String name;
 
     /**
      * The hex (ARGB) code of the color associated to the project
      */
     @ColorInt
+    @ColumnInfo(name = "color")
     private final int color;
 
     /**
@@ -43,36 +46,6 @@ public class Project {
         this.name = name;
         this.color = color;
     }
-
-    /**
-     * Returns all the projects of the application.
-     *
-     * @return all the projects of the application
-     */
-//    @NonNull
-//    public static Project[] getAllProjects() {
-//        return new Project[]{
-//                new Project(1L, "Projet Tartampion", 0xFFEADAD1),
-//                new Project(2L, "Projet Lucidia", 0xFFB4CDBA),
-//                new Project(3L, "Projet Circus", 0xFFA3CED2),
-//        };
-//    }
-
-    /**
-     * Returns the project with the given unique identifier, or null if no project with that
-     * identifier can be found.
-     *
-     * @param id the unique identifier of the project to return
-     * @return the project with the given unique identifier, or null if it has not been found
-     */
-//    @Nullable
-//    public static Project getProjectById(long id) {
-//        for (Project project : getAllProjects()) {
-//            if (project.id == id)
-//                return project;
-//        }
-//        return null;
-//    }
 
     /**
      * Returns the unique identifier of the project.

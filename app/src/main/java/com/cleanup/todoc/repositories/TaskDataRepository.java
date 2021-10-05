@@ -26,4 +26,7 @@ public class TaskDataRepository {
 
     // --- UPDATE ---
     public void updateTask(Task task){ taskDao.updateTask(task); }
+
+    // --- DELETE ALL TASKS (TESTING) ---
+    public void deleteAllTasks(){taskDao.deleteAllTask();}
 }
