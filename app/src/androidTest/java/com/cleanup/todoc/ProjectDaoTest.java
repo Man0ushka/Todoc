@@ -20,8 +20,8 @@ import static org.junit.Assert.assertTrue;
 public class ProjectDaoTest {
     private TodocDatabase database;
     // DATA SET FOR TEST
-    private static long PROJECT_ID = 1;
-    private static Project PROJECT_DEMO = new Project(PROJECT_ID, "Project test", 0xFFA3CED2);
+    private static final long PROJECT_ID = 1;
+    private static final Project PROJECT_DEMO = new Project(PROJECT_ID, "Project test", 0xFFA3CED2);
 
     @Rule
     public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();

@@ -10,8 +10,6 @@ import com.cleanup.todoc.model.Project;
 
 import java.util.List;
 
-import io.reactivex.rxjava3.core.Completable;
-
 @Dao
 public interface ProjectDao {
     @Query("SELECT * FROM Project WHERE id=:projectId")

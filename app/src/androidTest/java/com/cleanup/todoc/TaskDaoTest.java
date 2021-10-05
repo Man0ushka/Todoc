@@ -9,29 +9,27 @@ import com.cleanup.todoc.database.TodocDatabase;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 
-import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(AndroidJUnit4.class)
 public class TaskDaoTest {
     private TodocDatabase database;
     // DATA SET FOR TEST
-    private static long PROJECT_ID = 1;
-    private static Project PROJECT_DEMO = new Project(PROJECT_ID, "Project test", 0xFFA3CED2);
-    private static Task TASK_DEMO_0 = new Task(1,PROJECT_ID, "Task test 0", new Date().getTime());
-    private static Task TASK_DEMO_1 = new Task(2,PROJECT_ID, "Task test 1", new Date().getTime());
-    private static Task TASK_DEMO_2 = new Task(3,PROJECT_ID, "Task test 2", new Date().getTime());
+    private static final long PROJECT_ID = 1;
+    private static final Project PROJECT_DEMO = new Project(PROJECT_ID, "Project test", 0xFFA3CED2);
+    private static final Task TASK_DEMO_0 = new Task(1,PROJECT_ID, "Task test 0", new Date().getTime());
+    private static final Task TASK_DEMO_1 = new Task(2,PROJECT_ID, "Task test 1", new Date().getTime());
+    private static final Task TASK_DEMO_2 = new Task(3,PROJECT_ID, "Task test 2", new Date().getTime());
 
     @Rule
     public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
@@ -64,7 +62,7 @@ public class TaskDaoTest {
         this.database.taskDao().insertTask(TASK_DEMO_2);
         // TEST
         List<Task> taskList = LiveDataTestUtil.getValue(this.database.taskDao().getTasksFromProjectId(PROJECT_ID));
-        assertTrue(taskList.size() == 3);
+        assertEquals(3, taskList.size());
     }
     @Test
     public void insertAndUpdateItem() throws InterruptedException {

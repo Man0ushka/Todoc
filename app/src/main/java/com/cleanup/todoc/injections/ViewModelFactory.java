@@ -17,12 +17,12 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     private final TaskDataRepository taskDataSource;
     private final Executor executor;
 
-    public ViewModelFactory(ProjectDataRepository projectDataSource, TaskDataRepository taskDataSource, Executor executor)
-    {
+    public ViewModelFactory(ProjectDataRepository projectDataSource, TaskDataRepository taskDataSource, Executor executor) {
         this.projectDataSource = projectDataSource;
         this.taskDataSource = taskDataSource;
         this.executor = executor;
     }
+
     @NonNull
     @NotNull
     @Override

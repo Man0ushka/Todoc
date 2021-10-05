@@ -10,23 +10,38 @@ import java.util.List;
 public class TaskDataRepository {
     private final TaskDao taskDao;
 
-    public TaskDataRepository(TaskDao itemDao) { this.taskDao = itemDao; }
+    public TaskDataRepository(TaskDao itemDao) {
+        this.taskDao = itemDao;
+    }
 
     // --- GET ---
 
-    public LiveData<List<Task>> getTasksFromProjectId(long projectId){ return this.taskDao.getTasksFromProjectId(projectId); }
-    public LiveData<List<Task>> getTasks( ){ return this.taskDao.getTasks(); }
+    public LiveData<List<Task>> getTasksFromProjectId(long projectId) {
+        return this.taskDao.getTasksFromProjectId(projectId);
+    }
+
+    public LiveData<List<Task>> getTasks() {
+        return this.taskDao.getTasks();
+    }
 
     // --- CREATE ---
 
-    public void createTask(Task task){ taskDao.insertTask(task); }
+    public void createTask(Task task) {
+        taskDao.insertTask(task);
+    }
 
     // --- DELETE ---
-    public void deleteTask(long taskId){ taskDao.deleteTask(taskId); }
+    public void deleteTask(long taskId) {
+        taskDao.deleteTask(taskId);
+    }
 
     // --- UPDATE ---
-    public void updateTask(Task task){ taskDao.updateTask(task); }
+    public void updateTask(Task task) {
+        taskDao.updateTask(task);
+    }
 
     // --- DELETE ALL TASKS (TESTING) ---
-    public void deleteAllTasks(){taskDao.deleteAllTask();}
+    public void deleteAllTasks() {
+        taskDao.deleteAllTask();
+    }
 }

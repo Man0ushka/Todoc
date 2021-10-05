@@ -5,13 +5,10 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
-import androidx.room.DatabaseConfiguration;
-import androidx.room.InvalidationTracker;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import com.cleanup.todoc.database.dao.ProjectDao;
 import com.cleanup.todoc.database.dao.TaskDao;
@@ -19,14 +16,10 @@ import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 
 
-@Database(entities = {Project.class, Task.class},version = 1)
+@Database(entities = {Project.class, Task.class}, version = 1)
 public abstract class TodocDatabase extends RoomDatabase {
     // --- SINGLETON ---
     private static volatile TodocDatabase INSTANCE;
-
-    // --- DAO ---
-    public abstract TaskDao taskDao();
-    public abstract ProjectDao projectDao();
 
     // --- INSTANCE ---
     public static TodocDatabase getInstance(Context context) {
@@ -43,7 +36,7 @@ public abstract class TodocDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    private static Callback prepopulateDatabase(){
+    private static Callback prepopulateDatabase() {
         return new Callback() {
 
             @Override
@@ -68,5 +61,10 @@ public abstract class TodocDatabase extends RoomDatabase {
             }
         };
     }
+
+    // --- DAO ---
+    public abstract TaskDao taskDao();
+
+    public abstract ProjectDao projectDao();
 
 }

@@ -10,13 +10,21 @@ import java.util.List;
 public class ProjectDataRepository {
     private final ProjectDao projectDao;
 
-    public ProjectDataRepository(ProjectDao projectDao) { this.projectDao = projectDao; }
+    public ProjectDataRepository(ProjectDao projectDao) {
+        this.projectDao = projectDao;
+    }
 
     // --- GET PROJECT ---
-    public LiveData<Project> getProject(long projectId) { return this.projectDao.getProject(projectId); }
+    public LiveData<Project> getProject(long projectId) {
+        return this.projectDao.getProject(projectId);
+    }
 
     // --- GET ALL PROJECT ---
-    public LiveData<List<Project>> getAllProjects() { return this.projectDao.getAllProjects(); }
+    public LiveData<List<Project>> getAllProjects() {
+        return this.projectDao.getAllProjects();
+    }
 
-    public void createProject(Project project){this.projectDao.createProject(project);}
+    public void createProject(Project project) {
+        this.projectDao.createProject(project);
+    }
 }

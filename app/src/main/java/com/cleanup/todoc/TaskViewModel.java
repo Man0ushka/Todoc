@@ -25,16 +25,20 @@ public class TaskViewModel extends ViewModel {
     public LiveData<List<Task>> getTasksFromProjectId(long projectId) {
         return taskDataSource.getTasksFromProjectId(projectId);
     }
+
     public LiveData<List<Task>> getTasks() {
         return taskDataSource.getTasks();
     }
+
     public LiveData<List<Project>> getAllProjects() {
         return projectDataSource.getAllProjects();
     }
+
     public LiveData<Project> getProject(long projectId) {
         return projectDataSource.getProject(projectId);
     }
-    public void createProject(Project project){
+
+    public void createProject(Project project) {
         executor.execute(() -> projectDataSource.createProject(project));
     }
 
@@ -49,6 +53,7 @@ public class TaskViewModel extends ViewModel {
     public void updateTask(Task task) {
         executor.execute(() -> taskDataSource.updateTask(task));
     }
+
     public void deleteAllTasks() {
         executor.execute(() -> taskDataSource.deleteAllTasks());
     }
